@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Md Rashedul Islam | Academic Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Academic portfolio of Md Rashedul Islam – PhD Candidate at Deakin University and Associate Professor (on leave) at HSTU.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #0b1120;
+      --bg-card: #020617;
+      --primary: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.1);
+      --accent-strong: #0ea5e9;
+      --border: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.4);
+      --radius-lg: 18px;
+      --radius-xl: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1d2a4a 0, #020617 40%, #020617 100%);
+      color: var(--primary);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.4rem;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(2, 6, 23, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.4rem 0.75rem;
+      border-radius: var(--radius-xl);
+      color: var(--muted);
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* SECTIONS */
+
+    main {
+      padding: 2.2rem 0 3rem;
+    }
+
+    section {
+      padding: 2.4rem 0;
+    }
+
+    .section-heading {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-heading span {
+      height: 2px;
+      flex: 1;
+      background: linear-gradient(to right, var(--accent), transparent);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      max-width: 680px;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
+      gap: 2.2rem;
+      align-items: center;
+      padding-top: 1.4rem;
+    }
+
+    .hero-title {
+      font-size: 2.1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.98rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-roles {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-roles strong {
+      color: var(--primary);
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .badge-accent {
+      border-color: rgba(56, 189, 248, 0.6);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .hero-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .hero-contact {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-xl);
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-strong), #22c55e);
+      color: #0b1120;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(148, 163, 184, 0.6);
+      color: var(--primary);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* PROFILE CARD */
+
+    .hero-side {
+      justify-self: end;
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .profile-card {
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.98));
+      border-radius: 24px;
+      padding: 1.2rem 1.35rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+    }
+
+    .profile-photo {
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb, #94a3b8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.7rem;
+      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.6);
+    }
+
+    .profile-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .profile-role {
+      font-size: 0.83rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 0.55rem;
+      row-gap: 0.25rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .profile-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .profile-value {
+      font-size: 0.82rem;
+      color: var(--primary);
+    }
+
+    .profile-links {
+      font-size: 0.82rem;
+      margin-top: 0.4rem;
+    }
+
+    .profile-links a {
+      margin-right: 0.5rem;
+      text-decoration: none;
+    }
+
+    .profile-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* LAYOUT BLOCKS */
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.3rem;
+      font-size: 0.94rem;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.6);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    ul.list {
+      padding-left: 1.1rem;
+    }
+
+    ul.list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      list-style: none;
+      border-left: 1px solid rgba(148, 163, 184, 0.5);
+      padding-left: 1rem;
+      margin-left: 0.2rem;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 0.1rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -1.28rem;
+      top: 0.28rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-strong);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+    }
+
+    .timeline-title {
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    .timeline-org {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .timeline-time {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* PUBLICATIONS */
+
+    .pub-group {
+      margin-bottom: 1.8rem;
+    }
+
+    .pub-group h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-list {
+      list-style: decimal;
+      padding-left: 1.2rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .pub-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-title {
+      color: var(--primary);
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
+      gap: 1.8rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.5rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 0.86rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.6rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--primary);
+      font: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #64748b;
+    }
+
+    footer {
+      padding: 1.8rem 0 1.3rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      margin-top: 2rem;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-side {
+        justify-self: stretch;
+      }
+
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        height: auto;
+        padding: 0.4rem 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="nav-title">MD RASHEDUL ISLAM</div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#awards">Awards</a>
+      <a href="#talks">Talks</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div>
+      <h1 class="hero-title">Md Rashedul Islam</h1>
+      <p class="hero-tagline">PhD Candidate · Graduate Research Teaching Fellow · Associate Professor (on leave)</p>
+      <p class="hero-roles">
+        <strong>School of Information Technology</strong>, Deakin University, Melbourne, Australia<br>
+        <strong>Department of Computer Science &amp; Engineering</strong>, HSTU, Dinajpur, Bangladesh
+      </p>
+
+      <div class="hero-badges">
+        <span class="badge badge-accent">Edge Data Integrity Verification</span>
+        <span class="badge">Federated Learning</span>
+        <span class="badge">Mobile Edge Computing</span>
+        <span class="badge">Hyperspectral Imaging</span>
+        <span class="badge">Medical Imaging</span>
+        <span class="badge">Steganography</span>
+      </div>
+
+      <p class="hero-text">
+        I work at the intersection of edge computing, data security, and machine learning.
+        My current research focuses on designing robust edge data integrity verification
+        (EDIV) frameworks that remain practical in heterogeneous, multi-vendor mobile edge
+        environments, while my broader track record spans hyperspectral image analysis,
+        privacy-preserving medical imaging, and applied deep learning.
+      </p>
+
+      <div class="hero-contact">
+        <span>📧 <a href="mailto:md.islam@deakin.edu.au">md.islam@deakin.edu.au</a></span>
+        <span>·</span>
+        <span>📧 <a href="mailto:rashedul_cse@yahoo.com">rashedul_cse@yahoo.com</a></span>
+      </div>
+
+      <div class="hero-actions">
+        <!-- Replace #cv with your uploaded CV link later -->
+        <a class="btn btn-primary" href="#publications">View Publications</a>
+        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+
+    <aside class="hero-side">
+      <div class="profile-card">
+        <!-- You can replace this div with <img src="your-photo.jpg" class="profile-photo"> -->
+        <div class="profile-photo">RI</div>
+        <div class="profile-name">Md Rashedul Islam</div>
+        <div class="profile-role">PhD Candidate · Graduate Research Teaching Fellow · Associate Professor (on leave)</div>
+
+        <div class="profile-grid">
+          <div class="profile-label">Field</div>
+          <div class="profile-value">Edge Computing, Data Integrity, FL</div>
+          <div class="profile-label">Location</div>
+          <div class="profile-value">Melbourne, Australia · Dinajpur, Bangladesh</div>
+          <div class="profile-label">Current</div>
+          <div class="profile-value">Deakin University, School of IT</div>
+          <div class="profile-label">Home</div>
+          <div class="profile-value">HSTU, Dept. of CSE (on leave)</div>
+        </div>
+
+        <div class="profile-links">
+          <!-- Replace # with actual profile URLs -->
+          <a href="#" target="_blank">Google Scholar</a>
+          <a href="#" target="_blank">ResearchGate</a>
+          <a href="#" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT & RESEARCH -->
+  <section id="about">
+    <h2 class="section-heading">About &amp; Research Interests <span></span></h2>
+    <p class="section-subtitle">
+      A brief overview of my academic journey, current research agenda, and broader interests across edge computing,
+      security, and intelligent systems.
+    </p>
+
+    <div class="grid-2" id="research">
+      <div class="card">
+        <h3>About Me</h3>
+        <p class="muted">
+          I am currently a PhD candidate and Graduate Research Teaching Fellow at Deakin University,
+          Australia. I am also an Associate Professor in the Department of Computer Science and
+          Engineering at Hajee Mohammad Danesh Science and Technology University (HSTU), Bangladesh,
+          where I am on leave to pursue my doctoral research.
+        </p>
+        <p class="muted" style="margin-top:0.6rem;">
+          My recent work centres on edge data integrity verification (EDIV) for multi-vendor,
+          multi-server mobile edge computing environments. I design cryptographic and machine
+          learning–driven frameworks that reduce verification cost while improving reliability in
+          real-world deployments. Beyond EDIV, I have contributed to hyperspectral image
+          classification, privacy-preserving federated learning in medical imaging, and robust
+          deep learning models for computer vision tasks.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Research Interests</h3>
+        <ul class="list">
+          <li>Edge Data Integrity Verification (EDIV) in heterogeneous, multi-vendor MEC environments</li>
+          <li>Federated learning and adaptive regularization for corrupted server detection</li>
+          <li>Resource- and delay-aware audit scheduling for edge verification</li>
+          <li>Hyperspectral image analysis and spectral–spatial feature reduction</li>
+          <li>Privacy-preserving medical image analysis (e.g., Alzheimer’s disease classification)</li>
+          <li>Steganography and secure transmission of integrity proofs over untrusted networks</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- POSITIONS & TEACHING -->
+  <section id="teaching">
+    <h2 class="section-heading">Academic Positions &amp; Teaching <span></span></h2>
+    <p class="section-subtitle">
+      I have more than a decade of experience teaching and supervising students in computer science and engineering,
+      alongside ongoing research and service roles.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Academic Positions</h3>
+        <ul class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-title">Graduate Research Teaching Fellow</div>
+            <div class="timeline-org">School of Information Technology, Deakin University, Australia</div>
+            <div class="timeline-time">2025 – Present</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-title">Associate Professor (on leave)</div>
+            <div class="timeline-org">Dept. of CSE, Hajee Mohammad Danesh Science &amp; Technology University (HSTU), Bangladesh</div>
+            <div class="timeline-time">2022 – Present</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-title">Sessional / Casual Academic</div>
+            <div class="timeline-org">School of IT, Deakin University, Burwood &amp; Geelong</div>
+            <div class="timeline-time">2024 – 2024</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-title">Assistant Professor</div>
+            <div class="timeline-org">Dept. of CSE, HSTU, Bangladesh</div>
+            <div class="timeline-time">2017 – 2022</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-title">Lecturer</div>
+            <div class="timeline-org">Dept. of CSE, HSTU, Bangladesh</div>
+            <div class="timeline-time">2014 – 2017</div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-title">Lecturer</div>
+            <div class="timeline-org">Dept. of CSE, Uttara University, Dhaka, Bangladesh</div>
+            <div class="timeline-time">2014 – 2014</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Teaching &amp; Supervision</h3>
+        <p class="muted">
+          I have taught a wide range of courses at undergraduate and postgraduate level, including:
+        </p>
+        <ul class="list" style="margin-top:0.4rem;">
+          <li>Programming (C, C++, Java, Python)</li>
+          <li>Algorithms and Data Structures</li>
+          <li>Database Systems and Web Technologies</li>
+          <li>Machine Learning, Pattern Recognition, and AI-related subjects</li>
+        </ul>
+        <p class="muted" style="margin-top:0.6rem;">
+          I have supervised numerous thesis projects in hyperspectral imaging, medical image
+          analysis, steganography, and applied machine learning. At Deakin, I contribute to
+          teaching in secure coding, data capture technologies, and cloud/edge-focused units
+          as a Graduate Research Teaching Fellow and sessional academic.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <h2 class="section-heading">Selected Publications <span></span></h2>
+    <p class="section-subtitle">
+      For a full and up-to-date list of publications, please refer to my Google Scholar profile
+      or download my CV. Below is a selection highlighting recent work in edge computing,
+      federated learning, hyperspectral imaging, and medical applications.
+    </p>
+
+    <div class="card pub-group">
+      <h3>Edge Computing, EDIV &amp; Federated Learning</h3>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-title">Federated learning with adaptive regularization for efficient edge data corruption detection in edge intelligence.</span><br>
+          M. R. Islam, P. Uddin, Y. Xiang, K.-H. Yeh, L. Liu, and J. Kua,
+          <em>IEEE Transactions on Cloud Computing</em>, 2025.
+        </li>
+        <li>
+          <span class="pub-title">Multiple edge data integrity verification with multi-vendor and multi-server in mobile edge computing.</span><br>
+          M. R. Islam, Y. Xiang, P. Uddin, Y. Zhao, J. Kua, and L. Gao,
+          <em>IEEE Transactions on Mobile Computing</em>, 2025.
+        </li>
+      </ol>
+    </div>
+
+    <div class="card pub-group">
+      <h3>Hyperspectral Imaging &amp; Remote Sensing</h3>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-title">Advancing hyperspectral image classification with dual branch networks and informative feature extraction.</span><br>
+          M. T. Islam, M. R. Islam, and M. A. Al Mamun,
+          <em>Journal of Spatial Science</em>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Spectrally segmented-enhanced neural network for precise land cover object classification in hyperspectral imagery.</span><br>
+          M. T. Islam, M. R. Islam, P. Uddin, and A. Ulhaq,
+          <em>Remote Sensing</em>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Improving hyperspectral image classification with compact multi-branch deep learning.</span><br>
+          M. R. Islam, M. T. Islam, P. Uddin, and A. Ulhaq,
+          <em>Remote Sensing</em>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Mutual information-driven feature reduction for hyperspectral image classification.</span><br>
+          M. R. Islam, B. Ahmed, M. A. Hossain, and M. P. Uddin,
+          <em>Sensors</em>, 2023.
+        </li>
+      </ol>
+    </div>
+
+    <div class="card pub-group">
+      <h3>Medical Imaging &amp; Applied ML</h3>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-title">Towards privacy-preserving Alzheimer’s disease classification: Federated learning on T1-weighted MRI data.</span><br>
+          M. A. Sahid, M. P. Uddin, H. Saha, and M. R. Islam,
+          <em>Digital Health</em>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Advanced masked face recognition using robust and lightweight deep learning model.</span><br>
+          M. O. Faruque, M. R. Islam, and M. T. Islam,
+          <em>International Journal of Computer Applications</em>, 2023.
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section id="awards">
+    <h2 class="section-heading">Awards &amp; Scholarships <span></span></h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <ul class="list">
+          <li><strong>Deakin University Postgraduate Research Scholarship (DUPRS)</strong>, Deakin University, Australia (2023 – Ongoing).</li>
+          <li><strong>Best Paper Award</strong>, 6th International Conference on Electrical Information and Communication Technology (EICT 2023).</li>
+          <li><strong>Best Presentation Award</strong>, IRT Project Presentation, Faculty of CSE, HSTU (FY 2021–2022).</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul class="list">
+          <li><strong>UGC Merit Scholarship</strong>, University Grants Commission, Bangladesh (2011).</li>
+          <li><strong>Dean’s List Award</strong>, HSTU (2010–2012).</li>
+          <li><strong>HSC Merit Scholarship</strong>, Bangladesh Education Board (2007).</li>
+          <li><strong>SSC Merit Scholarship</strong>, Bangladesh Education Board (2005).</li>
+          <li><strong>Primary Merit Scholarship</strong>, Directorate of Primary Education, Bangladesh (1999).</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TALKS -->
+  <section id="talks">
+    <h2 class="section-heading">Invited Talks &amp; Conference Presentations <span></span></h2>
+
+    <div class="card">
+      <ul class="list">
+        <li>Presentations at <strong>IEEE COMPAS, ICCIT, ICIET, ECCE, IJCCA, ICIEV</strong> and other international conferences across topics in hyperspectral imaging, computer vision, federated learning, and edge computing.</li>
+        <li>Regular speaker on machine learning applications, research methodology, and advanced topics for students and early-career researchers at HSTU.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 class="section-heading">Contact <span></span></h2>
+
+    <div class="contact-grid">
+      <div class="card">
+        <h3>Get in Touch</h3>
+        <ul class="contact-list">
+          <li><strong>Email (Deakin):</strong> <a href="mailto:md.islam@deakin.edu.au">md.islam@deakin.edu.au</a></li>
+          <li><strong>Email (HSTU):</strong> <a href="mailto:rashedul_cse@yahoo.com">rashedul_cse@yahoo.com</a></li>
+        </ul>
+        <p class="muted" style="margin-top:0.6rem;">
+          I am open to research collaborations, co-supervision opportunities, and discussions related to
+          edge data integrity, federated learning, hyperspectral imaging, and applied machine learning.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Quick Message</h3>
+        <!-- This uses the visitor's email client; no backend needed -->
+        <form action="mailto:md.islam@deakin.edu.au" method="post" enctype="text/plain">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="Name" type="text" required placeholder="Your full name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="Email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" required placeholder="Your message"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send Email</button>
+        </form>
+        <p class="muted" style="margin-top:0.4rem; font-size:0.8rem;">
+          This form opens your email client. For form submissions without email client,
+          a server-side service would be required.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  &copy; <span id="year"></span> Md Rashedul Islam. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

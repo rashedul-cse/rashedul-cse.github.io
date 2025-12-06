@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #020617;
-      --bg-alt: #0b1120;
-      --bg-card: #020617;
-      --primary: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.1);
-      --accent-strong: #0ea5e9;
-      --border: rgba(148, 163, 184, 0.3);
-      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.4);
+      --bg: #f9fafb;
+      --bg-soft: #eef2ff;
+      --bg-card: #ffffff;
+      --primary: #0f172a;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.08);
+      --accent-strong: #1d4ed8;
+      --border: #e5e7eb;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
       --radius-lg: 18px;
       --radius-xl: 999px;
     }
@@ -35,7 +35,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #1d2a4a 0, #020617 40%, #020617 100%);
+      background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 40%, #f9fafb 100%);
       color: var(--primary);
       line-height: 1.6;
     }
@@ -50,20 +50,42 @@
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 1.4rem;
+      padding: 0 1.5rem;
     }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+
+    .fade-in.delay-1 { animation-delay: 0.1s; }
+    .fade-in.delay-2 { animation-delay: 0.2s; }
+    .fade-in.delay-3 { animation-delay: 0.3s; }
 
     /* NAVBAR */
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(2, 6, 23, 0.96);
+      z-index: 40;
+      background: rgba(249, 250, 251, 0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
     }
 
     .nav {
@@ -76,35 +98,37 @@
     .nav-title {
       font-weight: 700;
       font-size: 1rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #e5e7eb;
+      color: var(--primary);
     }
 
     .nav-links {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.5rem;
       font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links a {
-      padding: 0.4rem 0.75rem;
+      padding: 0.35rem 0.8rem;
       border-radius: var(--radius-xl);
       color: var(--muted);
-      transition: background 0.15s, color 0.15s, transform 0.1s;
+      transition: background 0.15s, color 0.15s, transform 0.08s;
       text-decoration: none;
     }
 
     .nav-links a:hover {
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--primary);
+      background: rgba(219, 234, 254, 0.9);
+      color: var(--accent-strong);
       transform: translateY(-1px);
     }
 
     /* SECTIONS */
 
     main {
-      padding: 2.2rem 0 3rem;
+      padding: 2.3rem 0 3rem;
     }
 
     section {
@@ -114,7 +138,7 @@
     .section-heading {
       font-size: 1.25rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       display: flex;
       align-items: center;
       gap: 0.6rem;
@@ -130,198 +154,182 @@
       font-size: 0.9rem;
       color: var(--muted);
       margin-bottom: 1.4rem;
-      max-width: 680px;
+      max-width: 700px;
     }
 
-    /* HERO */
+    /* HERO LAYOUT (closer to screenshot) */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.6fr);
-      gap: 2.2rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+      gap: 3rem;
+      align-items: flex-start;
+      padding-top: 1.6rem;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 2.4rem;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      padding-top: 1.4rem;
+      text-align: center;
+      gap: 0.8rem;
     }
 
-    .hero-title {
-      font-size: 2.1rem;
+    .profile-photo-large {
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+      border: 4px solid #ffffff;
+      background: #bfdbfe;
+    }
+
+    .profile-photo-large img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-photo-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #bfdbfe, #93c5fd);
+      font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 0.25rem;
+      color: #0f172a;
     }
 
-    .hero-tagline {
-      font-size: 0.98rem;
+    .hero-name {
+      font-size: 1.9rem;
+      font-weight: 650;
+    }
+
+    .hero-position {
+      font-size: 0.92rem;
       color: var(--muted);
-      margin-bottom: 0.9rem;
     }
 
-    .hero-roles {
-      font-size: 0.95rem;
-      color: var(--muted);
-      margin-bottom: 1.1rem;
-    }
-
-    .hero-roles strong {
-      color: var(--primary);
-    }
-
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .badge {
-      font-size: 0.78rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      background: rgba(15, 23, 42, 0.8);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .badge-accent {
-      border-color: rgba(56, 189, 248, 0.6);
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .hero-text {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 620px;
-    }
-
-    .hero-contact {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
+    .hero-affiliations {
       font-size: 0.9rem;
-      color: var(--muted);
+      line-height: 1.5;
     }
 
-    .hero-actions {
-      margin-top: 1.3rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
+    .hero-affiliations a {
+      text-decoration: none;
     }
+
+    .hero-icons {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .hero-icons a {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d1d5db;
+      background: #ffffff;
+      color: var(--accent-strong);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      text-decoration: none;
+    }
+
+    .hero-icons a:hover {
+      background: #eff6ff;
+      transform: translateY(-1px);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-top: 0.9rem;
+      width: 100%;
+      align-items: center;
+    }
+
+    .hero-buttons .btn {
+      width: auto;
+      min-width: 180px;
+    }
+
+    .hero-right {
+      font-size: 0.95rem;
+    }
+
+    .hero-right h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-right p {
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-highlight {
+      font-size: 0.86rem;
+      margin-top: 0.6rem;
+      padding: 0.45rem 0.7rem;
+      background: var(--accent-soft);
+      border-radius: 0.75rem;
+      display: inline-block;
+      color: var(--accent-strong);
+    }
+
+    /* GENERIC BUTTONS (reused below) */
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.4rem;
-      padding: 0.45rem 1.1rem;
+      padding: 0.5rem 1.1rem;
       border-radius: var(--radius-xl);
       border: 1px solid transparent;
       font-size: 0.9rem;
       font-weight: 500;
       cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, transform 0.1s;
+      transition: background 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.1s;
       text-decoration: none;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-strong), #22c55e);
-      color: #0b1120;
+      background: linear-gradient(135deg, #2563eb, #22c55e);
+      color: #f9fafb;
       box-shadow: var(--shadow-soft);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
+      box-shadow: 0 22px 45px rgba(37, 99, 235, 0.25);
       text-decoration: none;
     }
 
     .btn-ghost {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: rgba(148, 163, 184, 0.6);
+      background: #ffffff;
+      border-color: #cbd5f5;
       color: var(--primary);
     }
 
     .btn-ghost:hover {
-      background: rgba(15, 23, 42, 1);
+      background: #eff6ff;
       text-decoration: none;
       transform: translateY(-1px);
-    }
-
-    /* PROFILE CARD */
-
-    .hero-side {
-      justify-self: end;
-      width: 100%;
-      max-width: 320px;
-    }
-
-    .profile-card {
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.98));
-      border-radius: 24px;
-      padding: 1.2rem 1.35rem;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow-soft);
-      font-size: 0.9rem;
-    }
-
-    .profile-photo {
-      width: 86px;
-      height: 86px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #e5e7eb, #94a3b8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.7rem;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.6);
-    }
-
-    .profile-name {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .profile-role {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .profile-grid {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      column-gap: 0.55rem;
-      row-gap: 0.25rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .profile-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .profile-value {
-      font-size: 0.82rem;
-      color: var(--primary);
-    }
-
-    .profile-links {
-      font-size: 0.82rem;
-      margin-top: 0.4rem;
-    }
-
-    .profile-links a {
-      margin-right: 0.5rem;
-      text-decoration: none;
-    }
-
-    .profile-links a:hover {
-      text-decoration: underline;
     }
 
     /* LAYOUT BLOCKS */
@@ -333,12 +341,18 @@
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.85);
+      background: var(--bg-card);
       border-radius: var(--radius-lg);
       border: 1px solid var(--border);
-      padding: 1.2rem 1.3rem;
+      padding: 1.25rem 1.35rem;
       font-size: 0.94rem;
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.6);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
     }
 
     .card h3 {
@@ -347,9 +361,7 @@
       margin-bottom: 0.6rem;
     }
 
-    .muted {
-      color: var(--muted);
-    }
+    .muted { color: var(--muted); }
 
     ul.list {
       padding-left: 1.1rem;
@@ -363,7 +375,7 @@
 
     .timeline {
       list-style: none;
-      border-left: 1px solid rgba(148, 163, 184, 0.5);
+      border-left: 1px solid rgba(148, 163, 184, 0.7);
       padding-left: 1rem;
       margin-left: 0.2rem;
     }
@@ -371,48 +383,29 @@
     .timeline-item {
       position: relative;
       padding-left: 0.1rem;
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
     }
 
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -1.28rem;
-      top: 0.28rem;
+      left: -1.27rem;
+      top: 0.33rem;
       width: 9px;
       height: 9px;
       border-radius: 999px;
       background: var(--accent-strong);
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
     }
 
-    .timeline-title {
-      font-size: 0.93rem;
-      font-weight: 500;
-    }
-
-    .timeline-org {
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-
-    .timeline-time {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.1rem;
-    }
+    .timeline-title { font-size: 0.93rem; font-weight: 500; }
+    .timeline-org { font-size: 0.84rem; color: var(--muted); }
+    .timeline-time { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
 
     /* PUBLICATIONS */
 
-    .pub-group {
-      margin-bottom: 1.8rem;
-    }
-
-    .pub-group h3 {
-      font-size: 0.98rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .pub-group { margin-bottom: 1.9rem; }
+    .pub-group h3 { font-size: 0.98rem; font-weight: 600; margin-bottom: 0.5rem; }
 
     .pub-list {
       list-style: decimal;
@@ -421,13 +414,10 @@
       color: var(--muted);
     }
 
-    .pub-list li {
-      margin-bottom: 0.5rem;
-    }
+    .pub-list li { margin-bottom: 0.45rem; }
 
-    .pub-title {
-      color: var(--primary);
-    }
+    .pub-title { color: var(--primary); font-weight: 500; }
+    .pub-venue { font-style: italic; color: var(--muted); }
 
     /* CONTACT */
 
@@ -442,9 +432,7 @@
       font-size: 0.9rem;
     }
 
-    .contact-list li {
-      margin-bottom: 0.5rem;
-    }
+    .contact-list li { margin-bottom: 0.5rem; }
 
     form {
       display: grid;
@@ -461,8 +449,8 @@
       width: 100%;
       padding: 0.45rem 0.6rem;
       border-radius: 0.6rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid #d1d5db;
+      background: #ffffff;
       color: var(--primary);
       font: inherit;
     }
@@ -474,7 +462,7 @@
 
     input::placeholder,
     textarea::placeholder {
-      color: #64748b;
+      color: #9ca3af;
     }
 
     footer {
@@ -482,7 +470,7 @@
       text-align: center;
       font-size: 0.8rem;
       color: var(--muted);
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      border-top: 1px solid #e5e7eb;
       margin-top: 2rem;
     }
 
@@ -492,16 +480,13 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-
-      .hero-side {
-        justify-self: stretch;
+      .hero-left {
+        margin-bottom: 1.4rem;
       }
-
       .grid-2,
       .contact-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-
       header {
         position: static;
       }
@@ -513,22 +498,17 @@
         align-items: flex-start;
         gap: 0.4rem;
         height: auto;
-        padding: 0.4rem 0;
+        padding: 0.45rem 0;
       }
 
       .nav-links {
-        flex-wrap: wrap;
-      }
-
-      .hero-title {
-        font-size: 1.7rem;
+        justify-content: flex-start;
       }
     }
 
     @media (max-width: 480px) {
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
+      .hero-buttons .btn {
+        width: 100%;
       }
     }
   </style>
@@ -539,8 +519,9 @@
   <div class="container nav">
     <div class="nav-title">MD RASHEDUL ISLAM</div>
     <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
+      <a href="#top">Home</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
       <a href="#publications">Publications</a>
       <a href="#teaching">Teaching</a>
       <a href="#awards">Awards</a>
@@ -552,120 +533,206 @@
 
 <main class="container">
 
-  <!-- HERO -->
+  <!-- HERO (photo + bio like screenshot) -->
   <section class="hero" id="top">
-    <div>
-      <h1 class="hero-title">Md Rashedul Islam</h1>
-      <p class="hero-tagline">PhD Candidate · Graduate Research Teaching Fellow · Associate Professor (on leave)</p>
-      <p class="hero-roles">
-        <strong>School of Information Technology</strong>, Deakin University, Melbourne, Australia<br>
-        <strong>Department of Computer Science &amp; Engineering</strong>, HSTU, Dinajpur, Bangladesh
-      </p>
+    <div class="hero-left fade-in delay-1">
+      <div class="profile-photo-large">
+        <!-- If you have photo.jpg in the same folder, uncomment the img and delete the fallback div -->
+        <img src="11.jpg" alt="Photo of Md Rashedul Islam"> 
+        <div class="profile-photo-fallback">RI</div>
+      </div>
+      <div class="hero-name">Md Rashedul Islam</div>
+      <div class="hero-position">PhD Candidate &amp; Graduate Research Teaching Fellow</div>
+      <div class="hero-position">Associate Professor (on leave), HSTU</div>
 
-      <div class="hero-badges">
-        <span class="badge badge-accent">Edge Data Integrity Verification</span>
-        <span class="badge">Federated Learning</span>
-        <span class="badge">Mobile Edge Computing</span>
-        <span class="badge">Hyperspectral Imaging</span>
-        <span class="badge">Medical Imaging</span>
-        <span class="badge">Steganography</span>
+      <div class="hero-affiliations">
+        <a href="#" target="_blank" rel="noopener"><strong>Deakin University</strong>, School of Information Technology</a><br>
+        <a href="#" target="_blank" rel="noopener">Hajee Mohammad Danesh Science &amp; Technology University (HSTU)</a>
       </div>
 
-      <p class="hero-text">
-        I work at the intersection of edge computing, data security, and machine learning.
-        My current research focuses on designing robust edge data integrity verification
-        (EDIV) frameworks that remain practical in heterogeneous, multi-vendor mobile edge
-        environments, while my broader track record spans hyperspectral image analysis,
-        privacy-preserving medical imaging, and applied deep learning.
-      </p>
-
-      <div class="hero-contact">
-        <span>📧 <a href="mailto:md.islam@deakin.edu.au">md.islam@deakin.edu.au</a></span>
-        <span>·</span>
-        <span>📧 <a href="mailto:rashedul_cse@yahoo.com">rashedul_cse@yahoo.com</a></span>
+      <div class="hero-icons">
+        <a href="mailto:md.islam@deakin.edu.au" title="Email">&#9993;</a>
+        <a href="#" target="_blank" rel="noopener" title="Google Scholar">G</a>
+        <a href="#" target="_blank" rel="noopener" title="ResearchGate">R</a>
+        <a href="#" target="_blank" rel="noopener" title="LinkedIn">in</a>
       </div>
 
-      <div class="hero-actions">
-        <!-- Replace #cv with your uploaded CV link later -->
+      <div class="hero-buttons">
         <a class="btn btn-primary" href="#publications">View Publications</a>
-        <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+        <a class="btn btn-ghost" href="#projects">Research Projects</a>
       </div>
     </div>
 
-    <aside class="hero-side">
-      <div class="profile-card">
-        <!-- You can replace this div with <img src="your-photo.jpg" class="profile-photo"> -->
-        <div class="profile-photo">RI</div>
-        <div class="profile-name">Md Rashedul Islam</div>
-        <div class="profile-role">PhD Candidate · Graduate Research Teaching Fellow · Associate Professor (on leave)</div>
-
-        <div class="profile-grid">
-          <div class="profile-label">Field</div>
-          <div class="profile-value">Edge Computing, Data Integrity, FL</div>
-          <div class="profile-label">Location</div>
-          <div class="profile-value">Melbourne, Australia · Dinajpur, Bangladesh</div>
-          <div class="profile-label">Current</div>
-          <div class="profile-value">Deakin University, School of IT</div>
-          <div class="profile-label">Home</div>
-          <div class="profile-value">HSTU, Dept. of CSE (on leave)</div>
-        </div>
-
-        <div class="profile-links">
-          <!-- Replace # with actual profile URLs -->
-          <a href="#" target="_blank">Google Scholar</a>
-          <a href="#" target="_blank">ResearchGate</a>
-          <a href="#" target="_blank">LinkedIn</a>
-        </div>
+    <div class="hero-right fade-in delay-2">
+      <h2>Biography</h2>
+      <p>
+        Md Rashedul Islam is a PhD candidate and Graduate Research Teaching Fellow at the School of
+        Information Technology, Deakin University, Melbourne, Australia. He is also an Associate Professor
+        (on leave) in the Department of Computer Science and Engineering at Hajee Mohammad Danesh Science and
+        Technology University (HSTU), Dinajpur, Bangladesh.
+      </p>
+      <p>
+        His current research focuses on <strong>edge data integrity verification (EDIV)</strong> in heterogeneous,
+        multi-vendor mobile edge computing environments. He designs cryptographic and machine learning–driven
+        techniques that make integrity verification scalable, resource-aware, and robust under corrupted or unreliable
+        edge servers.
+      </p>
+      <p>
+        Beyond EDIV, he has published widely in <strong>hyperspectral image analysis</strong>, <strong>privacy-preserving
+        medical imaging</strong> and <strong>steganography</strong>, including articles in <em>IEEE Transactions on Cloud
+        Computing</em>, <em>IEEE Transactions on Mobile Computing</em>, <em>Remote Sensing</em>, <em>Sensors</em>,
+        and <em>Journal of Spatial Science</em>.
+      </p>
+      <p>
+        He has also led multiple funded research projects at HSTU on agricultural land extraction from satellite
+        hyperspectral imagery and robust image watermarking, and has received several awards and scholarships
+        recognising both research and teaching excellence.
+      </p>
+      <div class="hero-highlight">
+        Currently seeking collaborations in edge data integrity, federated learning, and hyperspectral imaging.
       </div>
-    </aside>
+    </div>
   </section>
 
-  <!-- ABOUT & RESEARCH -->
-  <section id="about">
-    <h2 class="section-heading">About &amp; Research Interests <span></span></h2>
+  <!-- ABOUT & RESEARCH (kept shorter to avoid duplication, optional) -->
+  <section id="about" class="fade-in delay-1">
+    <h2 class="section-heading">Research Interests <span></span></h2>
     <p class="section-subtitle">
-      A brief overview of my academic journey, current research agenda, and broader interests across edge computing,
-      security, and intelligent systems.
+      A snapshot of the main areas my current and past research activities are centred around.
     </p>
 
     <div class="grid-2" id="research">
       <div class="card">
-        <h3>About Me</h3>
-        <p class="muted">
-          I am currently a PhD candidate and Graduate Research Teaching Fellow at Deakin University,
-          Australia. I am also an Associate Professor in the Department of Computer Science and
-          Engineering at Hajee Mohammad Danesh Science and Technology University (HSTU), Bangladesh,
-          where I am on leave to pursue my doctoral research.
-        </p>
-        <p class="muted" style="margin-top:0.6rem;">
-          My recent work centres on edge data integrity verification (EDIV) for multi-vendor,
-          multi-server mobile edge computing environments. I design cryptographic and machine
-          learning–driven frameworks that reduce verification cost while improving reliability in
-          real-world deployments. Beyond EDIV, I have contributed to hyperspectral image
-          classification, privacy-preserving federated learning in medical imaging, and robust
-          deep learning models for computer vision tasks.
-        </p>
+        <h3>Core Themes</h3>
+        <ul class="list">
+          <li>Edge Data Integrity Verification (EDIV) in heterogeneous, multi-vendor MEC environments</li>
+          <li>Federated learning and adaptive regularization for corrupted edge server detection</li>
+          <li>Resource- and delay-aware audit scheduling at the edge</li>
+          <li>Security-aware data management and trustworthy edge intelligence</li>
+        </ul>
       </div>
 
       <div class="card">
-        <h3>Research Interests</h3>
+        <h3>Broader Interests</h3>
         <ul class="list">
-          <li>Edge Data Integrity Verification (EDIV) in heterogeneous, multi-vendor MEC environments</li>
-          <li>Federated learning and adaptive regularization for corrupted server detection</li>
-          <li>Resource- and delay-aware audit scheduling for edge verification</li>
           <li>Hyperspectral image analysis and spectral–spatial feature reduction</li>
-          <li>Privacy-preserving medical image analysis (e.g., Alzheimer’s disease classification)</li>
-          <li>Steganography and secure transmission of integrity proofs over untrusted networks</li>
+          <li>Privacy-preserving medical imaging and federated learning for brain disease classification</li>
+          <li>Steganography, watermarking, and secure transmission of integrity proofs</li>
+          <li>Deep learning for computer vision and pattern recognition tasks</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <!-- EDUCATION -->
+  <section id="education" class="fade-in delay-2">
+    <h2 class="section-heading">Education <span></span></h2>
+    <p class="section-subtitle">
+      Formal academic training in computer science and engineering, with a strong focus on machine learning,
+      image analysis, and information security.
+    </p>
+
+    <div class="card">
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-title">Ph.D. in Information Technology</div>
+          <div class="timeline-org">Deakin University, Melbourne, Australia</div>
+          <div class="timeline-time">2023 – Present</div>
+          <p class="muted" style="font-size:0.85rem; margin-top:0.3rem;">
+            Thesis: <em>Enhancing Edge Data Integrity under Corrupted and Heterogeneous Servers</em>.
+          </p>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-title">M.Sc. in Computer Science and Engineering</div>
+          <div class="timeline-org">Rajshahi University of Engineering and Technology (RUET), Bangladesh</div>
+          <div class="timeline-time">2016 – 2019</div>
+          <p class="muted" style="font-size:0.85rem; margin-top:0.3rem;">
+            Thesis: <em>Improved Feature Selection for the Classification of Hyperspectral Images Using Mutual Information
+            with Minimum Noise Fraction</em>.
+          </p>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-title">B.Sc. in Computer Science and Engineering</div>
+          <div class="timeline-org">Hajee Mohammad Danesh Science and Technology University (HSTU), Bangladesh</div>
+          <div class="timeline-time">2009 – 2012</div>
+          <p class="muted" style="font-size:0.85rem; margin-top:0.3rem;">
+            Thesis: <em>An Efficient Filtering-Based Approach Improving LSB Steganography Using Status Bit Along With AES
+            Cryptography</em>.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH PROJECTS -->
+  <section id="projects" class="fade-in delay-1">
+    <h2 class="section-heading">Research Projects <span></span></h2>
+    <p class="section-subtitle">
+      Competitive research projects funded by the Institute of Research and Training (IRT), HSTU, focusing on
+      hyperspectral imagery, agricultural land identification, and information security.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>A Hybrid Spectral–Spatial Dimensionality Reduction Method to Extract Agriculture Fields</h3>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.3rem;">
+          <strong>Funded by:</strong> Institute of Research and Training (IRT), HSTU, Dinajpur<br>
+          <strong>Position:</strong> Principal Investigator (PI)<br>
+          <strong>Fiscal Year:</strong> 2022–2023
+        </p>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.6rem;">
+          Develops a hybrid spectral–spatial dimensionality reduction pipeline for satellite hyperspectral imagery,
+          enabling accurate extraction of agricultural fields while keeping the computational cost manageable for
+          large-scale remote sensing analysis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Extracting Agriculture Lands from Hyperspectral Imagery Using Deep CNNs</h3>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.3rem;">
+          <strong>Funded by:</strong> Institute of Research and Training (IRT), HSTU, Dinajpur<br>
+          <strong>Position:</strong> Principal Investigator (PI)<br>
+          <strong>Fiscal Year:</strong> 2021–2022
+        </p>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.6rem;">
+          Explores deep convolutional neural network architectures for precise segmentation and classification
+          of agricultural land from hyperspectral satellite data, supporting data-driven decision making in
+          agriculture and land management.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Dimensionality Reduction for Identifying Agricultural Land from Hyperspectral Images</h3>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.3rem;">
+          <strong>Funded by:</strong> Institute of Research and Training (IRT), HSTU, Dinajpur<br>
+          <strong>Position:</strong> Principal Investigator (PI)<br>
+          <strong>Fiscal Year:</strong> 2020–2021
+        </p>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.6rem;">
+          Proposes an efficient dimensionality reduction strategy tailored to agricultural land classification,
+          balancing discriminative power with computational efficiency for large-area monitoring.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Improved LSB Watermarking Using Logistic Map and AES Encryption</h3>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.3rem;">
+          <strong>Funded by:</strong> Institute of Research and Training (IRT), HSTU<br>
+          <strong>Position:</strong> Co-Principal Investigator (Co-PI)
+        </p>
+        <p class="muted" style="font-size:0.88rem; margin-top:0.6rem;">
+          Security-focused research on robust image watermarking that combines LSB techniques with a one-dimensional
+          logistic map and AES encryption to strengthen resistance against steganalysis and unauthorized tampering.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- POSITIONS & TEACHING -->
-  <section id="teaching">
+  <section id="teaching" class="fade-in delay-1">
     <h2 class="section-heading">Academic Positions &amp; Teaching <span></span></h2>
     <p class="section-subtitle">
-      I have more than a decade of experience teaching and supervising students in computer science and engineering,
+      More than a decade of experience teaching and supervising students in computer science and engineering,
       alongside ongoing research and service roles.
     </p>
 
@@ -680,12 +747,12 @@
           </li>
           <li class="timeline-item">
             <div class="timeline-title">Associate Professor (on leave)</div>
-            <div class="timeline-org">Dept. of CSE, Hajee Mohammad Danesh Science &amp; Technology University (HSTU), Bangladesh</div>
+            <div class="timeline-org">Dept. of CSE, HSTU, Bangladesh</div>
             <div class="timeline-time">2022 – Present</div>
           </li>
           <li class="timeline-item">
-            <div class="timeline-title">Sessional / Casual Academic</div>
-            <div class="timeline-org">School of IT, Deakin University, Burwood &amp; Geelong</div>
+            <div class="timeline-title">Sessional Academic / Casual Academic</div>
+            <div class="timeline-org">School of IT, Deakin University (Burwood &amp; Geelong)</div>
             <div class="timeline-time">2024 – 2024</div>
           </li>
           <li class="timeline-item">
@@ -701,7 +768,7 @@
           <li class="timeline-item">
             <div class="timeline-title">Lecturer</div>
             <div class="timeline-org">Dept. of CSE, Uttara University, Dhaka, Bangladesh</div>
-            <div class="timeline-time">2014 – 2014</div>
+            <div class="timeline-time">2014</div>
           </li>
         </ul>
       </div>
@@ -709,7 +776,7 @@
       <div class="card">
         <h3>Teaching &amp; Supervision</h3>
         <p class="muted">
-          I have taught a wide range of courses at undergraduate and postgraduate level, including:
+          I have taught a wide range of undergraduate and postgraduate courses, including:
         </p>
         <ul class="list" style="margin-top:0.4rem;">
           <li>Programming (C, C++, Java, Python)</li>
@@ -718,91 +785,230 @@
           <li>Machine Learning, Pattern Recognition, and AI-related subjects</li>
         </ul>
         <p class="muted" style="margin-top:0.6rem;">
-          I have supervised numerous thesis projects in hyperspectral imaging, medical image
-          analysis, steganography, and applied machine learning. At Deakin, I contribute to
-          teaching in secure coding, data capture technologies, and cloud/edge-focused units
-          as a Graduate Research Teaching Fellow and sessional academic.
+          I have supervised numerous thesis projects on hyperspectral imaging, medical image analysis, steganography,
+          and applied machine learning. At Deakin, I contribute to teaching in secure coding, data capture technologies,
+          and cloud/edge-focused units as a Graduate Research Teaching Fellow and sessional academic.
         </p>
       </div>
     </div>
   </section>
 
   <!-- PUBLICATIONS -->
-  <section id="publications">
-    <h2 class="section-heading">Selected Publications <span></span></h2>
+  <section id="publications" class="fade-in delay-2">
+    <h2 class="section-heading">Research Publications <span></span></h2>
     <p class="section-subtitle">
-      For a full and up-to-date list of publications, please refer to my Google Scholar profile
-      or download my CV. Below is a selection highlighting recent work in edge computing,
-      federated learning, hyperspectral imaging, and medical applications.
+      Below is the full list of my journal and conference publications as in my latest CV.
+      For the most recent updates, please refer to my Google Scholar profile.
     </p>
 
+    <!-- JOURNALS -->
     <div class="card pub-group">
-      <h3>Edge Computing, EDIV &amp; Federated Learning</h3>
+      <h3>Journal Articles</h3>
       <ol class="pub-list">
         <li>
           <span class="pub-title">Federated learning with adaptive regularization for efficient edge data corruption detection in edge intelligence.</span><br>
           M. R. Islam, P. Uddin, Y. Xiang, K.-H. Yeh, L. Liu, and J. Kua,
-          <em>IEEE Transactions on Cloud Computing</em>, 2025.
+          <span class="pub-venue">IEEE Transactions on Cloud Computing</span>, 2025.
         </li>
         <li>
           <span class="pub-title">Multiple edge data integrity verification with multi-vendor and multi-server in mobile edge computing.</span><br>
           M. R. Islam, Y. Xiang, P. Uddin, Y. Zhao, J. Kua, and L. Gao,
-          <em>IEEE Transactions on Mobile Computing</em>, 2025.
+          <span class="pub-venue">IEEE Transactions on Mobile Computing</span>, 2025.
         </li>
-      </ol>
-    </div>
-
-    <div class="card pub-group">
-      <h3>Hyperspectral Imaging &amp; Remote Sensing</h3>
-      <ol class="pub-list">
         <li>
           <span class="pub-title">Advancing hyperspectral image classification with dual branch networks and informative feature extraction.</span><br>
           M. T. Islam, M. R. Islam, and M. A. Al Mamun,
-          <em>Journal of Spatial Science</em>, 2024.
+          <span class="pub-venue">Journal of Spatial Science</span>, 2024.
         </li>
         <li>
           <span class="pub-title">Spectrally segmented-enhanced neural network for precise land cover object classification in hyperspectral imagery.</span><br>
           M. T. Islam, M. R. Islam, P. Uddin, and A. Ulhaq,
-          <em>Remote Sensing</em>, 2024.
+          <span class="pub-venue">Remote Sensing</span>, 2024.
         </li>
         <li>
           <span class="pub-title">Improving hyperspectral image classification with compact multi-branch deep learning.</span><br>
           M. R. Islam, M. T. Islam, P. Uddin, and A. Ulhaq,
-          <em>Remote Sensing</em>, 2024.
+          <span class="pub-venue">Remote Sensing</span>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Towards privacy-preserving Alzheimer’s disease classification: Federated learning on T1-weighted MRI data.</span><br>
+          M. A. Sahid, M. P. Uddin, H. Saha, and M. R. Islam,
+          <span class="pub-venue">Digital Health</span>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">Advanced masked face recognition using a robust and lightweight deep learning model.</span><br>
+          M. O. Faruque, M. R. Islam, and M. T. Islam,
+          <span class="pub-venue">International Journal of Computer Applications</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">A deep learning-based hyperspectral object classification approach via imbalanced training samples handling.</span><br>
+          M. T. Islam, M. R. Islam, M. P. Uddin, and A. Ulhaq,
+          <span class="pub-venue">Remote Sensing</span>, 2023.
         </li>
         <li>
           <span class="pub-title">Mutual information-driven feature reduction for hyperspectral image classification.</span><br>
           M. R. Islam, B. Ahmed, M. A. Hossain, and M. P. Uddin,
-          <em>Sensors</em>, 2023.
+          <span class="pub-venue">Sensors</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Improving hyperspectral image classification through spectral–spatial feature reduction with a hybrid approach and deep learning.</span><br>
+          M. R. Islam, M. T. Islam, and M. P. Uddin,
+          <span class="pub-venue">Journal of Spatial Science</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Hyperspectral image classification via information theoretic dimension reduction.</span><br>
+          M. R. Islam, A. Siddiqa, M. I. Afjal, M. P. Uddin, and A. Ulhaq,
+          <span class="pub-venue">Remote Sensing</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Spectral segmentation-based dimension reduction for hyperspectral image classification.</span><br>
+          A. Siddiqa, M. R. Islam, and M. I. Afjal,
+          <span class="pub-venue">Journal of Spatial Science</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">Hybrid 3DNet: Hyperspectral image classification with spectral–spatial dimension reduction using 3D CNN.</span><br>
+          Z. B. Zakaria and M. R. Islam,
+          <span class="pub-venue">International Journal of Computer Applications</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">An efficient dimensionality reduction method for the classification of satellite remote sensing hyperspectral images.</span><br>
+          M. R. Islam, A. Siddiqa, and N. Tasnim,
+          <span class="pub-venue">International Journal of Computer Applications</span>, 2021.
+        </li>
+        <li>
+          <span class="pub-title">Feature reduction of hyperspectral image for classification.</span><br>
+          M. R. Islam, B. Ahmed, and A. Hossain,
+          <span class="pub-venue">Journal of Spatial Science</span>, 2020.
+        </li>
+        <li>
+          <span class="pub-title">A modified LSB image steganography method using filtering algorithm and stream of password.</span><br>
+          M. R. Islam, T. Tanni, S. Parvin, M. Sultana, and A. Siddiqa,
+          <span class="pub-venue">Information Security Journal: A Global Perspective</span>, 2020.
+        </li>
+        <li>
+          <span class="pub-title">A modified blind steganalysis method based on the moments of characteristic function.</span><br>
+          P. Basak, L. Arjuman, A. M. Nitu, and M. R. Islam et al.,
+          <span class="pub-venue">HBRP Advancement in Software Engineering and Testing</span>, 2018.
+        </li>
+        <li>
+          <span class="pub-title">A modified filtering approach of LSB image steganography using stream builder along with AES encryption.</span><br>
+          S. Sultana, A. Khanam, M. R. Islam et al.,
+          <span class="pub-venue">HBRP Recent Trends in Information Technology and its Applications</span>, 2018.
+        </li>
+        <li>
+          <span class="pub-title">Bengali consonants voice-to-text conversion using machine learning tools.</span><br>
+          S. K. Roy, A. K. Ghosh, A. S. Asa, M. P. Uddin, M. R. Islam, and M. I. Afjal,
+          <span class="pub-venue">International Journal of Research in Computer Engineering and Electronics</span>, 2017.
+        </li>
+        <li>
+          <span class="pub-title">Android-based walking assistant for blind and low-vision people suggesting the shortest path using Floyd–Warshall algorithm.</span><br>
+          M. Sohrawordi, M. Hossen, M. P. Uddin, A. M. Nitu, and M. R. Islam,
+          <span class="pub-venue">Journal of Innovation and Development Strategy</span>, 2015.
+        </li>
+        <li>
+          <span class="pub-title">Cross-user source-based data deduplication in distributed systems without violating data privacy of individual users.</span><br>
+          M. Nadim, S. M. Billah, M. S. Alam, A. K. Mandal, M. P. Uddin, and M. R. Islam,
+          <span class="pub-venue">International Journal of Research in Computer Engineering and Electronics (IJRCEE)</span>, 2014.
         </li>
       </ol>
     </div>
 
+    <!-- CONFERENCES -->
     <div class="card pub-group">
-      <h3>Medical Imaging &amp; Applied ML</h3>
+      <h3>Conference Proceedings</h3>
       <ol class="pub-list">
         <li>
-          <span class="pub-title">Towards privacy-preserving Alzheimer’s disease classification: Federated learning on T1-weighted MRI data.</span><br>
-          M. A. Sahid, M. P. Uddin, H. Saha, and M. R. Islam,
-          <em>Digital Health</em>, 2024.
+          <span class="pub-title">Seeing the world in dots: A machine learning adventure in colour-blind perception.</span><br>
+          S. R. Rahman, M. R. Islam, and A. Chakrabortty,
+          in <span class="pub-venue">IEEE International Conference on Computing, Applications and Systems (COMPAS)</span>, 2024.
         </li>
         <li>
-          <span class="pub-title">Advanced masked face recognition using robust and lightweight deep learning model.</span><br>
-          M. O. Faruque, M. R. Islam, and M. T. Islam,
-          <em>International Journal of Computer Applications</em>, 2023.
+          <span class="pub-title">Enhancing parallelism in cross-silo federated learning for brain disease classification.</span><br>
+          M. A. Sahid, H. Saha, M. R. Islam, and M. P. Uddin,
+          in <span class="pub-venue">IEEE International Conference on Computing, Applications and Systems (COMPAS)</span>, 2024.
+        </li>
+        <li>
+          <span class="pub-title">An efficient feature optimisation approach with machine learning for detection of major depressive disorder using EEG signals.</span><br>
+          A. Bhuyain, J. Ferdouse, M. Babar, M. Sohrawordi, M. R. Islam, and E. Ali,
+          in <span class="pub-venue">26th International Conference on Computer and Information Technology (ICCIT)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">A machine learning algorithm to detect Alzheimer’s disease using MRI images.</span><br>
+          A. Chakrabortty, S. R. Rahman, M. T. Islam, M. R. Islam, and M. A. Al Mamun,
+          in <span class="pub-venue">6th International Conference on Electrical Information and Communication Technology (EICT)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Segmentation-based dimensionality reduction for hyperspectral image classification.</span><br>
+          T. Hasan, M. L. Ali Liton, M. H. Rahman, M. T. Islam, and M. R. Islam,
+          in <span class="pub-venue">6th International Conference on Electrical Information and Communication Technology (EICT)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Crossover dimensionality reduction and multi-branch deep learning for enhanced hyperspectral image classification.</span><br>
+          M. T. Islam and M. R. Islam,
+          in <span class="pub-venue">6th International Conference on Electrical Information and Communication Technology (EICT)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Selective HybridNet: Spectral–spatial dimensionality reduction for HSI classification.</span><br>
+          M. R. Islam, M. T. Islam, and M. Sohrawordi,
+          in <span class="pub-venue">International Conference on Electrical, Computer and Communication Engineering (ECCE)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">Enhanced brain tumour classification from MRI images using deep learning model.</span><br>
+          A. B. Rahman, M. T. Islam, M. R. Islam, M. Sohrawordi, and M. N. Sultan,
+          in <span class="pub-venue">26th International Conference on Computer and Information Technology (ICCIT)</span>, 2023.
+        </li>
+        <li>
+          <span class="pub-title">MC-Net: Spectral–spatial feature reduction for hyperspectral image classification with optimised technique series.</span><br>
+          M. T. Islam, M. Kumar, and M. R. Islam,
+          in <span class="pub-venue">International Conference on Electrical, Computer and Telecommunication Engineering (ICECTE)</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">Spectral–spatial feature reduction for hyperspectral image classification with optimised technique series.</span><br>
+          M. T. Islam, M. Kumar, M. R. Islam, and M. Sohrawordi,
+          in <span class="pub-venue">International Conference on Electrical and Computer Engineering (ICECE)</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">Sub-grouping-based NMF with imbalanced class handling for hyperspectral image classification.</span><br>
+          M. T. Islam, M. Kumar, M. R. Islam, and M. Sohrawordi,
+          in <span class="pub-venue">International Conference on Computer and Information Technology (ICCIT)</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">Spectral–spatial dimensionality reduction for hyperspectral image classification.</span><br>
+          M. R. Islam and B. Ahmed,
+          in <span class="pub-venue">International Conference on Computer and Information Technology (ICCIT)</span>, 2022.
+        </li>
+        <li>
+          <span class="pub-title">Analysis of PCA-based feature extraction methods for classification of hyperspectral image.</span><br>
+          U. A. M. E. Ali, M. A. Hossain, and M. R. Islam,
+          in <span class="pub-venue">International Conference on Innovation in Engineering and Technology (ICIET)</span>, 2019.
+        </li>
+        <li>
+          <span class="pub-title">Feature reduction based on segmented principal component analysis for hyperspectral image classification.</span><br>
+          M. R. Islam, B. Ahmed, and M. A. Hossain,
+          in <span class="pub-venue">International Conference on Electrical, Computer and Communication Engineering (ECCE)</span>, 2019.
+        </li>
+        <li>
+          <span class="pub-title">Spectral subset detection for hyperspectral image classification.</span><br>
+          A. Siddiqa, M. Ibn Afzal, M. R. Islam, and A. Mahjabin Nitu,
+          in <span class="pub-venue">International Conference on Innovation in Engineering and Technology (ICIET)</span>, 2019.
+        </li>
+        <li>
+          <span class="pub-title">An efficient filtering-based approach improving LSB image steganography using status bit along with AES cryptography.</span><br>
+          M. R. Islam, A. Siddiqa, M. P. Uddin, A. K. Mandal, and M. D. Hossain,
+          in <span class="pub-venue">International Conference on Informatics, Electronics and Vision (ICIEV)</span>, 2014.
         </li>
       </ol>
     </div>
   </section>
 
   <!-- AWARDS -->
-  <section id="awards">
+  <section id="awards" class="fade-in delay-1">
     <h2 class="section-heading">Awards &amp; Scholarships <span></span></h2>
 
     <div class="grid-2">
       <div class="card">
         <ul class="list">
-          <li><strong>Deakin University Postgraduate Research Scholarship (DUPRS)</strong>, Deakin University, Australia (2023 – Ongoing).</li>
+          <li><strong>Deakin University Postgraduate Research Scholarship (DUPRS)</strong>, Deakin University, Melbourne, Australia (2023 – Ongoing).</li>
           <li><strong>Best Paper Award</strong>, 6th International Conference on Electrical Information and Communication Technology (EICT 2023).</li>
           <li><strong>Best Presentation Award</strong>, IRT Project Presentation, Faculty of CSE, HSTU (FY 2021–2022).</li>
         </ul>
@@ -810,7 +1016,7 @@
       <div class="card">
         <ul class="list">
           <li><strong>UGC Merit Scholarship</strong>, University Grants Commission, Bangladesh (2011).</li>
-          <li><strong>Dean’s List Award</strong>, HSTU (2010–2012).</li>
+          <li><strong>Dean’s List Award</strong>, HSTU, for each of the last three undergraduate years (2010–2012).</li>
           <li><strong>HSC Merit Scholarship</strong>, Bangladesh Education Board (2007).</li>
           <li><strong>SSC Merit Scholarship</strong>, Bangladesh Education Board (2005).</li>
           <li><strong>Primary Merit Scholarship</strong>, Directorate of Primary Education, Bangladesh (1999).</li>
@@ -820,19 +1026,19 @@
   </section>
 
   <!-- TALKS -->
-  <section id="talks">
+  <section id="talks" class="fade-in delay-2">
     <h2 class="section-heading">Invited Talks &amp; Conference Presentations <span></span></h2>
 
     <div class="card">
       <ul class="list">
-        <li>Presentations at <strong>IEEE COMPAS, ICCIT, ICIET, ECCE, IJCCA, ICIEV</strong> and other international conferences across topics in hyperspectral imaging, computer vision, federated learning, and edge computing.</li>
-        <li>Regular speaker on machine learning applications, research methodology, and advanced topics for students and early-career researchers at HSTU.</li>
+        <li>Regular presentations at international conferences including <strong>COMPAS, ICCIT, EICT, ECCE, ICECE, ICECTE, ICIET, ICIEV</strong> and others on topics spanning hyperspectral imaging, federated learning, and edge computing.</li>
+        <li>Invited talks and seminars for undergraduate and postgraduate students on machine learning, research methodology, and advanced topics in computer science and engineering at HSTU and Deakin University.</li>
       </ul>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" class="fade-in delay-2">
     <h2 class="section-heading">Contact <span></span></h2>
 
     <div class="contact-grid">
@@ -843,8 +1049,8 @@
           <li><strong>Email (HSTU):</strong> <a href="mailto:rashedul_cse@yahoo.com">rashedul_cse@yahoo.com</a></li>
         </ul>
         <p class="muted" style="margin-top:0.6rem;">
-          I am open to research collaborations, co-supervision opportunities, and discussions related to
-          edge data integrity, federated learning, hyperspectral imaging, and applied machine learning.
+          I am open to research collaborations, co-supervision, and discussions related to edge data integrity
+          verification, federated learning, hyperspectral imaging, and applied machine learning.
         </p>
       </div>
 
@@ -867,8 +1073,8 @@
           <button class="btn btn-primary" type="submit">Send Email</button>
         </form>
         <p class="muted" style="margin-top:0.4rem; font-size:0.8rem;">
-          This form opens your email client. For form submissions without email client,
-          a server-side service would be required.
+          This form opens your email client to send the message. A server-side service would be needed
+          to submit without using an email client.
         </p>
       </div>
     </div>

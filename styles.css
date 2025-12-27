@@ -535,12 +535,12 @@
       transition: transform 0.1s, box-shadow 0.1s;
     }
     .rcard {
-      background: var(--bg-card);
+      
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
+      
       padding: 1.25rem 4.35rem;
       font-size: 0.94rem;
-      box-shadow: var(--shadow-soft);
+      
       transition: transform 0.1s, box-shadow 0.1s;
     }
 

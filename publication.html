@@ -6,12 +6,10 @@
   <title>Md Rashedul Islam | Academic Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description"
-        content="Academic portfolio of Md Rashedul Islam – PhD Candidate at Deakin University and Associate Professor (on leave) at HSTU.">
+        content="Academic portfolio of Md Rashedul Islam, PhD Candidate at Deakin University and Associate Professor (on leave) at HSTU.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-
-
 
 <body>
 
@@ -21,7 +19,9 @@
     <nav class="nav-links">
       <a href="index.html"><-- Home</a>
     </nav>
+
   </div>
+
 </header>
 
 <main class="container">
@@ -915,169 +915,7 @@ year = {2014}
   &copy; <span id="year"></span> Md Rashedul Islam. All rights reserved.
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script>
-  (function () {
-    const typeButtons = document.querySelectorAll('[data-type-filter]');
-    const topicButtons = document.querySelectorAll('[data-topic-filter]');
-    const yearSelect = document.getElementById('pub-year-select');
-    const searchInput = document.getElementById('pub-search-input');
-    const allPubItems = document.querySelectorAll('.pub-list li[data-type]');
-
-    let currentType = 'all';
-    let currentTopic = 'all';
-
-    function applyFilters() {
-      const yearFilter = yearSelect.value;
-      const searchTerm = searchInput.value.trim().toLowerCase();
-
-      allPubItems.forEach(li => {
-        const type = li.dataset.type || 'journal';
-        const topics = (li.dataset.topics || '').toLowerCase().split(',').map(t => t.trim()).filter(Boolean);
-        const year = li.dataset.year || '';
-        const titleEl = li.querySelector('.pub-title');
-        const titleText = titleEl ? titleEl.textContent.toLowerCase() : li.textContent.toLowerCase();
-
-        let visible = true;
-
-        // type filter
-        if (currentType !== 'all' && type !== currentType) {
-          visible = false;
-        }
-
-        // topic filter
-        if (visible && currentTopic !== 'all') {
-          if (!topics.includes(currentTopic)) {
-            visible = false;
-          }
-        }
-
-        // year filter
-        if (visible && yearFilter !== 'all' && year !== yearFilter) {
-          visible = false;
-        }
-
-        // search filter
-        if (visible && searchTerm) {
-          if (!titleText.includes(searchTerm)) {
-            visible = false;
-          }
-        }
-
-        li.style.display = visible ? '' : 'none';
-      });
-    }
-
-    // type chips
-    typeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        typeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentType = btn.dataset.typeFilter;
-        applyFilters();
-      });
-    });
-
-    // topic chips
-    topicButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        topicButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentTopic = btn.dataset.topicFilter;
-        applyFilters();
-      });
-    });
-
-    yearSelect.addEventListener('change', applyFilters);
-    searchInput.addEventListener('input', applyFilters);
-  })();
-</script>
-<script>
-  // simple intersection observer for fade-in
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  fadeEls.forEach(el => observer.observe(el));
-</script>
-<script>
-  (function () {
-    const modal = document.getElementById('bibtexModal');
-    const textEl = document.getElementById('bibtexText');
-    const closeBtn = document.getElementById('bibtexClose');
-    const copyBtn = document.getElementById('bibtexCopy');
-    const dlBtn = document.getElementById('bibtexDownload');
-
-    let currentBib = '';
-
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.bibtex-btn');
-      if (!btn) return;
-
-      currentBib = btn.getAttribute('data-bibtex') || '';
-      textEl.textContent = currentBib.trim() || 'No BibTeX provided.';
-      modal.showModal();
-    });
-
-    closeBtn.addEventListener('click', () => modal.close());
-
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(currentBib.trim());
-        copyBtn.textContent = 'Copied!';
-        setTimeout(() => (copyBtn.textContent = 'Copy'), 900);
-      } catch {
-        alert('Copy failed. Please copy manually from the box.');
-      }
-    });
-
-    dlBtn.addEventListener('click', () => {
-      const blob = new Blob([currentBib.trim() + '\n'], { type: 'text/plain' });
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'publication.bib';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(a.href);
-    });
-  })();
-</script>
-<script>
-  (function () {
-    document.addEventListener('click', function (e) {
-      const a = e.target.closest('.pub-bibtex-toggle');
-      if (!a) return;
-
-      e.preventDefault();
-
-      const li = a.closest('li');
-      if (!li) return;
-
-      const box = li.querySelector('.pub-bibtex');
-      if (!box) return;
-
-      const isOpen = !box.hasAttribute('hidden');
-
-      // close all other bibtex blocks (optional; remove if you want multiple open)
-      document.querySelectorAll('.pub-bibtex').forEach(p => p.setAttribute('hidden', ''));
-      document.querySelectorAll('.pub-bibtex-toggle').forEach(t => t.setAttribute('aria-expanded', 'false'));
-
-      if (!isOpen) {
-        box.removeAttribute('hidden');
-        a.setAttribute('aria-expanded', 'true');
-      }
-    });
-  })();
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>

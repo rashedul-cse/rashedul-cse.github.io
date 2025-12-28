@@ -18,14 +18,7 @@
     <nav class="nav-links">
       <a href="index.html"><-- Home</a>
     </nav>
-    <div class="nav-actions">
-      <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-        <span class="icon">☾</span>
-      </button>
-      <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" title="Menu">
-        <span class="icon">☰</span>
-      </button>
-    </div>
+
   </div>
 </header>
   <!-- Header End-->
@@ -45,11 +38,7 @@
         <div class="profile-photo-fallback">RI</div>
       </div>
       <div class="rhero-name">Md Rashedul Islam</div>
-      <div class="hero-position"><i><strong>PhD Student</strong> (3rd year) </i> <br>
-      <a href="https://experts.deakin.edu.au/65018-md-rashedul-islam" target="_blank" rel="noopener" style="color:#2563eb">Deakin University, School of IT, Melbourne, Australia</a></div>
       
-      <div class="hero-position"><i><strong>Associate Professor</strong> (on leave)</i> <br>
-      <a href="https://hstu.ac.bd/teacher/rashedul" target="_blank" rel="noopener style="color:#2563eb"">Hajee Mohammad Danesh Science &amp; Technology University (HSTU)</a></div>
       
 
       <div class="hero-icons">
@@ -68,10 +57,15 @@
           <div class="stat-label">Q1 journals</div>
         </div>
         <div class="stat">
-          <div class="stat-num" data-count="10">0</div>
+          <div class="stat-num" data-count="6">0</div>
+          <div class="stat-label">Q2 journals</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count="12">0</div>
           <div class="stat-label">+ years teaching</div>
         </div>
-      </div>  </div>
+      </div>  
+    </div>
 </div>
     </div>
   <!-- HERO (photo + bio like screenshot) -------end -------->
@@ -82,26 +76,19 @@
     <div class="rcard">
       <h3 class="rcard-title">Research Interests</h3>
       <ul class="rinterest-list">
-        <li>Artificial Intelligence</li>
-        <li>Machine Learning and Deep Learning</li>
+        <li>Artificial Intelligence 
+        <li>Machine Learning and Deep Learning</li>  
         <li>Distributed and Edge Computing</li>
         <li>Security, Privacy, and Trustworthy Computing</li>
         <li>Federated and Privacy-Preserving Learning</li>
-        <li>Computer Vision and Image Analysis</li>
-        <li>Remote Sensing and Hyperspectral Imaging</li>
+        <li>Computer Vision and Image Analysis 
+        <li>Remote Sensing and Hyperspectral Imaging</li> 
         <li>Medical Imaging and Healthcare AI</li>
         <li>Secure Multimedia Processing</li>
       </ul>
-
-      <h3 class="rcard-title">Education</h3>
-      <ul class="rtimeline">
-        <li class="rtimeline-item">
-          <div class="timeline-title">Ph.D. in Information Technology</div>
-          <div class="timeline-org">Deakin University, Melbourne, Australia</div>
-          <div class="timeline-time">2023 – 2026 (Ongoing)</div>          
-        </li>
-        
-      </ul>
+      <div class="hero-highlight">
+        Currently seeking collaborations in edge data integrity, federated learning, and hyperspectral imaging.
+      </div>
     </div>
   </div>
   </section>
@@ -183,13 +170,9 @@
         </p>
       </div>
     </div>
-  </section>
-
-  
+  </section> 
 
 </main>
-
-
 <button class="fab" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -197,217 +180,7 @@
   &copy; <span id="year"></span> Md Rashedul Islam. All rights reserved.
 </footer>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script>
-  (function () {
-    const typeButtons = document.querySelectorAll('[data-type-filter]');
-    const topicButtons = document.querySelectorAll('[data-topic-filter]');
-    const yearSelect = document.getElementById('pub-year-select');
-    const searchInput = document.getElementById('pub-search-input');
-    const allPubItems = document.querySelectorAll('.pub-list li[data-type]');
-
-    let currentType = 'all';
-    let currentTopic = 'all';
-
-    function applyFilters() {
-      const yearFilter = yearSelect.value;
-      const searchTerm = searchInput.value.trim().toLowerCase();
-
-      allPubItems.forEach(li => {
-        const type = li.dataset.type || 'journal';
-        const topics = (li.dataset.topics || '').toLowerCase().split(',').map(t => t.trim()).filter(Boolean);
-        const year = li.dataset.year || '';
-        const titleEl = li.querySelector('.pub-title');
-        const titleText = titleEl ? titleEl.textContent.toLowerCase() : li.textContent.toLowerCase();
-
-        let visible = true;
-
-        // type filter
-        if (currentType !== 'all' && type !== currentType) {
-          visible = false;
-        }
-
-        // topic filter
-        if (visible && currentTopic !== 'all') {
-          if (!topics.includes(currentTopic)) {
-            visible = false;
-          }
-        }
-
-        // year filter
-        if (visible && yearFilter !== 'all' && year !== yearFilter) {
-          visible = false;
-        }
-
-        // search filter
-        if (visible && searchTerm) {
-          if (!titleText.includes(searchTerm)) {
-            visible = false;
-          }
-        }
-
-        li.style.display = visible ? '' : 'none';
-      });
-    }
-
-    // type chips
-    typeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        typeButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentType = btn.dataset.typeFilter;
-        applyFilters();
-      });
-    });
-
-    // topic chips
-    topicButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        topicButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentTopic = btn.dataset.topicFilter;
-        applyFilters();
-      });
-    });
-
-    yearSelect.addEventListener('change', applyFilters);
-    searchInput.addEventListener('input', applyFilters);
-  })();
-</script>
-<script>
-  // simple intersection observer for fade-in
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  fadeEls.forEach(el => observer.observe(el));
-</script>
-
-
-<script>
-(function () {
-  const root = document.documentElement;
-
-  // ----- Theme (persisted) -----
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme) root.setAttribute('data-theme', savedTheme);
-
-  const themeToggle = document.getElementById('themeToggle');
-  const setThemeIcon = () => {
-    const t = root.getAttribute('data-theme') || 'light';
-    themeToggle.querySelector('.icon').textContent = (t === 'dark') ? '☀' : '☾';
-  };
-  if (themeToggle) {
-    setThemeIcon();
-    themeToggle.addEventListener('click', () => {
-      const current = root.getAttribute('data-theme') || 'light';
-      const next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      setThemeIcon();
-      toast(`Switched to ${next} mode`);
-    });
-  }
-
-  // ----- Mobile nav -----
-  const nav = document.querySelector('.nav-links');
-  const navToggle = document.getElementById('navToggle');
-  if (nav && navToggle) {
-    navToggle.addEventListener('click', () => {
-      nav.classList.toggle('open');
-    });
-    nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('open')));
-  }
-
-  // ----- Toast -----
-  const toastEl = document.getElementById('toast');
-  let toastTimer = null;
-  function toast(msg) {
-    if (!toastEl) return;
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2200);
-  }
-  window.toast = toast;
-
-  // ----- Back to top -----
-  const backBtn = document.getElementById('backToTop');
-  if (backBtn) {
-    const onScroll = () => {
-      backBtn.classList.toggle('show', window.scrollY > 600);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  }
-
-  // ----- Reveal on scroll -----
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
-
-  // ----- Scrollspy -----
-  const sections = [...document.querySelectorAll('section[id]')];
-  const links = [...document.querySelectorAll('.nav-links a[href^="#"]')];
-  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
-  const spy = () => {
-    const y = window.scrollY + 90;
-    let current = sections[0]?.id;
-    for (const s of sections) {
-      if (s.offsetTop <= y) current = s.id;
-    }
-    links.forEach(a => a.classList.remove('active'));
-    if (current && map.get(current)) map.get(current).classList.add('active');
-  };
-  window.addEventListener('scroll', spy, { passive: true });
-  spy();
-
-  // ----- Animated counters -----
-  const counters = document.querySelectorAll('[data-count]');
-  const cObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      const el = e.target;
-      const target = parseInt(el.getAttribute('data-count') || '0', 10);
-      const start = 0;
-      const dur = 900;
-      const t0 = performance.now();
-      function tick(now) {
-        const p = Math.min(1, (now - t0) / dur);
-        el.textContent = String(Math.floor(start + (target - start) * (p * (2 - p))));
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-      cObs.unobserve(el);
-    });
-  }, { threshold: 0.6 });
-  counters.forEach(el => cObs.observe(el));
-
-  // ----- Copy email on click (hero icons + contact) -----
-  document.querySelectorAll('a[href^="mailto:"]').forEach(a => {
-    a.addEventListener('click', async (ev) => {
-      // allow normal mailto on long press; but also copy email quickly
-      const email = a.getAttribute('href').replace('mailto:', '').trim();
-      try {
-        await navigator.clipboard.writeText(email);
-        toast('Email copied');
-      } catch {}
-    });
-  });
-
-})();
-</script>
+<script src="script.js"></script>
 
 
 </body>

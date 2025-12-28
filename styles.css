@@ -540,7 +540,7 @@
       
       padding: 1.25rem 4.35rem;
       font-size: 0.94rem;
-      
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
       transition: transform 0.1s, box-shadow 0.1s;
     }
 
@@ -556,6 +556,7 @@
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.6rem;
+      color: #9a3412;
     }
     .rcard h3 {
       font-size: 1rem;
@@ -631,8 +632,14 @@
 
     .pub-list li { margin-bottom: 0.45rem; }
 
-    .pub-title { color: var(--primary); font-weight: 500; }
-    .pub-venue { font-style: italic; color: var(--muted); }
+    .pub-title { 
+      color: rgb(1, 88, 122); 
+      font-weight: 500; 
+    }
+    .pub-venue { 
+      font-style: italic; 
+      color: var(--muted); 
+    }
 
     /* CONTACT */
 
@@ -1011,16 +1018,22 @@ html {
 .hero-stats{
   width: 100%;
   display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.65rem;
+  
   margin-top: 1rem;
+  
+    color: #a10008;
+
 }
+
+
 .stat{
   border-radius: 14px;
   border: 1px solid rgba(148,163,184,0.45);
-  background: rgba(255,255,255,0.78);
-  padding: 0.6rem 0.65rem;
+  background: rgba(255,255,255,0.78); 
   box-shadow: 0 10px 22px rgba(15,23,42,0.07);
+  padding: 0.5rem 0.45rem;
 }
 .stat-num{
   font-size: 1.15rem;
@@ -1428,7 +1441,7 @@ details.pub-year::before {
   bottom: 0.25rem;
   width: 2px;
   background: #e5e7eb;
-  border-radius: 2px;
+  border-radius: 2px;}
 .ts-card{
   background:#fff;
   border:1px solid rgba(0,0,0,.06);
@@ -1701,3 +1714,33 @@ details[open] .summary-caret{ transform: rotate(180deg); }
   .teach-kpis{ grid-template-columns: repeat(2, minmax(0,1fr)); }
   .teach-two{ grid-template-columns: 1fr; }
 }
+
+.course-year-summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.course-year-title {
+  font-size: 1rem;
+}
+
+.course-list {
+  margin-left: 4.2rem;
+  margin-bottom: 1rem;
+}
+
+.course-list li {
+  margin-bottom: 0.3rem;
+}
+.course-list ol {
+  margin-left: 2rem;
+}
+.course-year{
+  margin-left: auto;
+}
+
+

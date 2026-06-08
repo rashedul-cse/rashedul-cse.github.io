@@ -50,6 +50,7 @@
 .interest-list li{
   margin: 0.35rem 0;
   line-height: 1.45;
+  margin-left: 2.45em;
 }
 .rinterest-list li{
   margin: 0.35rem 0;
@@ -202,7 +203,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top right, #e0f2fe 0, #f9fafb 40%, #f9fafb 100%);
+      
       color: var(--primary);
       line-height: 1.6;
     }
@@ -319,9 +320,9 @@
 
     .section-subtitle {
       font-size: 0.9rem;
-      color: var(--muted);
+      color: rgb(79, 93, 114);
       margin-bottom: 1.4rem;
-      max-width: 700px;
+      max-width: 880px;
     }
 
     /* HERO LAYOUT (closer to screenshot) */
@@ -458,7 +459,7 @@
     }
 
     .hero-right p {
-      color: var(--muted);
+   
       margin-bottom: 0.65rem;
     }
 
@@ -528,7 +529,7 @@
     .card {
       background: var(--bg-card);
       border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
+      
       padding: 1.25rem 1.35rem;
       font-size: 0.94rem;
       box-shadow: var(--shadow-soft);
@@ -564,7 +565,7 @@
       margin-bottom: 0.6rem;
     }
 
-    .muted { color: var(--muted); }
+    .muted { color: rgb(29, 41, 63); }
 
     ul.list {
       padding-left: 1.1rem;
@@ -615,8 +616,8 @@
     }
 
     .timeline-title { font-size: 0.93rem; font-weight: 500; }
-    .timeline-org { font-size: 0.84rem; color: var(--muted); }
-    .timeline-time { font-size: 0.8rem; color: var(--muted); margin-top: 0.1rem; }
+    .timeline-org { font-size: 0.84rem;  }
+    .timeline-time { font-size: 0.8rem;  margin-top: 0.1rem; }
 
     /* PUBLICATIONS */
 
@@ -627,7 +628,7 @@
       list-style: decimal;
       padding-left: 1.2rem;
       font-size: 0.88rem;
-      color: var(--muted);
+      
     }
 
     .pub-list li { margin-bottom: 0.45rem; }
@@ -635,18 +636,17 @@
     .pub-title { 
       color: rgb(1, 88, 122); 
       font-weight: 500; 
+      font-size: 18px;
     }
     .pub-venue { 
       font-style: italic; 
-      color: var(--muted); 
+      
     }
 
     /* CONTACT */
 
     .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.7fr);
-      gap: 1.8rem;
+
     }
 
     .contact-list {
@@ -854,10 +854,10 @@
 
 .selected-pubs-card {
   border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.5);
+  
   padding: 0.9rem 1.1rem;
   margin-bottom: 1.4rem;
-  background: linear-gradient(to right, #eef2ff, #f9fafb);
+ 
 }
 
 .selected-pubs-card h3 {
@@ -1041,7 +1041,7 @@ html {
 }
 .stat-label{
   font-size: 0.75rem;
-  color: var(--muted);
+
   margin-top: 0.05rem;
 }
 :root[data-theme="dark"] .stat{
@@ -1744,3 +1744,245 @@ details[open] .summary-caret{ transform: rotate(180deg); }
 }
 
 
+/* =========================================================
+   Featured Publications - Ye Zhu inspired layout
+   ========================================================= */
+
+.featured-publications-section {
+  padding: 4rem 0;
+}
+
+.featured-pubs-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 4rem;
+  align-items: start;
+}
+
+.featured-pubs-title {
+  position: sticky;
+  top: 90px;
+}
+
+.featured-pubs-title h2 {
+  font-size: 3.1rem;
+  line-height: 1.25;
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: #111827;
+  margin: 0;
+}
+
+.featured-pubs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+
+.featured-pub-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.featured-pub-content h3 {
+  font-size: 1.55rem;
+  line-height: 1.18;
+  font-weight: 700;
+  color: #020617;
+  margin: 0 0 0.55rem;
+  max-width: 760px;
+}
+
+.featured-pub-desc {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #111827;
+  margin: 0 0 0.85rem;
+  max-width: 760px;
+}
+
+.featured-pub-authors {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin: 0 0 0.35rem;
+}
+
+.featured-pub-venue {
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin: 0 0 0.7rem;
+}
+
+.pub-badge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.08rem 0.45rem;
+  border: 1px solid #2563eb;
+  border-radius: 999px;
+  color: #2563eb;
+  font-size: 0.72rem;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.featured-pub-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.featured-pub-buttons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.22rem 0.62rem;
+  border: 1px solid #2563eb;
+  border-radius: 0.25rem;
+  color: #2563eb;
+  font-size: 0.82rem;
+  line-height: 1.2;
+  text-decoration: none;
+  background: #ffffff;
+}
+
+.featured-pub-buttons a:hover {
+  background: #2563eb;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.featured-pub-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.venue-logo-box {
+  width: 150px;
+  height: 150px;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 800;
+  font-size: 1.4rem;
+  line-height: 1.15;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+}
+
+.ieee-logo {
+  background: #eef2ff;
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
+}
+
+.tmc-logo {
+  background: #ecfeff;
+  color: #155e75;
+  border: 1px solid #a5f3fc;
+}
+
+.rs-logo {
+  background: #f0fdf4;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.all-publications-link {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .featured-pubs-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .featured-pubs-title {
+    position: static;
+  }
+
+  .featured-pubs-title h2 {
+    font-size: 2.4rem;
+  }
+
+  .featured-pub-item {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .featured-pub-image {
+    justify-content: flex-start;
+  }
+
+  .venue-logo-box {
+    width: 120px;
+    height: 120px;
+    font-size: 1.1rem;
+  }
+
+  .all-publications-link {
+    justify-content: flex-start;
+  }
+}
+
+
+
+
+
+
+/* Small image space for selected publications without changing the theme */
+
+.pub-item-with-image {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 130px;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.pub-main-content {
+  min-width: 0;
+}
+
+.pub-image-box {
+  width: 130px;
+  min-height: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.pub-image-box img {
+  width: 160px;
+  max-height: 140px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Optional placeholder if image is missing */
+.pub-image-box:empty {
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+/* Mobile view */
+@media (max-width: 700px) {
+  .pub-item-with-image {
+    grid-template-columns: 1fr;
+  }
+
+  .pub-image-box {
+    justify-content: flex-start;
+    margin-top: 0.4rem;
+  }
+}

@@ -2,29 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Md Rashedul Islam | Academic Portfolio</title>
+  <title>Teaching | Md Rashedul Islam</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-        content="Academic portfolio of Md Rashedul Islam – PhD Candidate at Deakin University and Associate Professor (on leave) at HSTU.">
+  <meta name="description" content="Teaching and supervision by Md Rashedul Islam at Deakin University and HSTU, spanning AI, machine learning, programming, and image processing.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="author" content="Md Rashedul Islam">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Teaching | Md Rashedul Islam">
+  <meta property="og:description" content="Teaching and supervision by Md Rashedul Islam at Deakin University and HSTU, spanning AI, machine learning, programming, and image processing.">
+  <meta property="og:image" content="11.jpg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Teaching | Md Rashedul Islam">
+  <meta name="twitter:description" content="Teaching and supervision by Md Rashedul Islam at Deakin University and HSTU, spanning AI, machine learning, programming, and image processing.">
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer">
 </head>
 <body>
 
   <!-- Header start-->
-<header>
-  <div class="container nav">
-    <div class="nav-title">MD RASHEDUL ISLAM</div>
-    <nav class="nav-links">
+  <header>
+    <div class="container nav">
+      <div class="nav-title"><a href="index.html" style="color:inherit;text-decoration:none">MD RASHEDUL ISLAM</a></div>
+      <nav class="nav-links" id="primaryNav">
         <a href="index.html">Home</a>
         <a href="Research_Project.html">Research Projects</a>
         <a href="publication.html">Full Publications</a>
-        <a href="Teaching.html">Teaching</a>
-        <a href="award.html">Awards</a>
-         <a href="CV.pdf"target="_blank" rel="noopener">CV</a>
-    </nav>
-  </div>
-</header>
+        <a href="Teaching.html" class="active">Teaching</a>
+        <a href="Services.html">Professional Services</a>
+        <a href="CV.pdf" target="_blank" rel="noopener"><i class="fa-regular fa-file-lines"></i> CV</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="icon">☾</span>
+        </button>
+        <button class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav" title="Menu">
+          <span class="icon"><i class="fa-solid fa-bars"></i></span>
+        </button>
+      </div>
+    </div>
+  </header>
   <!-- Header End-->
 
   <!-- Main body start-->
@@ -38,22 +58,18 @@
   <div class="hero-left fade-in delay-1">
       <div class="rprofile-photo-large">
         <!-- If you have photo.jpg in the same folder, uncomment the img and delete the fallback div -->
-        <img src="11.jpg" alt="Photo of Md Rashedul Islam"> 
+        <img src="11.jpg" alt="Photo of Md Rashedul Islam" loading="lazy" decoding="async"> 
         <div class="profile-photo-fallback">RI</div>
       </div>
       <div class="rhero-name">Md Rashedul Islam</div>
-      <div class="hero-position"><i><strong>PhD Student</strong> (3rd year) </i> <br>
-      <a href="https://experts.deakin.edu.au/65018-md-rashedul-islam" target="_blank" rel="noopener" style="color:#2563eb">Deakin University, School of IT, Melbourne, Australia</a></div>
       
-      <div class="hero-position"><i><strong>Associate Professor</strong> (on leave)</i> <br>
-      <a href="https://hstu.ac.bd/teacher/rashedul" target="_blank" rel="noopener style="color:#2563eb"">Hajee Mohammad Danesh Science &amp; Technology University (HSTU)</a></div>
       
 
       <div class="hero-icons">
-        <a href="mailto:md.islam@deakin.edu.au" title="Email">&#9993;</a>
-        <a href="https://scholar.google.com/citations?user=QPref34AAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar">G</a>
-        <a href="https://www.researchgate.net/profile/Md-Islam-2770?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate">R</a>
-        <a href="https://www.linkedin.com/in/mdrashedulislam-/" target="_blank" rel="noopener" title="LinkedIn">in</a>
+        <a href="mailto:md.islam@deakin.edu.au" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://scholar.google.com/citations?user=QPref34AAAAJ&hl=en" target="_blank" rel="noopener" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+        <a href="https://www.researchgate.net/profile/Md-Islam-2770?ev=hdr_xprf" target="_blank" rel="noopener" title="ResearchGate"><i class="fa-brands fa-researchgate"></i></a>
+        <a href="https://www.linkedin.com/in/mdrashedulislam-/" target="_blank" rel="noopener" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>      
     </div>
 </div>
@@ -75,29 +91,25 @@
       </div>
    </div>
   </section>
-
-
-
-
  
 <section id="coursework" class="fade-in delay-2">
   <h2 class="section-heading">Course Taken <span></span></h2>
 
   <div class="card">
-    <h3 style="background-color: rgb(0, 143, 124);padding: 10px;color: #ffffff;border-radius: var(--radius-lg);">Deakin University, Melbourne, Australia </h3>
+    <h3 style="background-color: rgb(29 78 216);;padding: 10px;color: #ffffff;border-radius: var(--radius-lg);">Deakin University, Melbourne, Australia </h3>
       <ul class="course-list">
-        <li>Cloud Computing SIT233 <span style="color: cadetblue;">(Year: 2025)</span></li>
-        <li>Cloud Computing SIT706<span style="color: cadetblue;">(Year: 2025)</span></li>
-        <li>Data Capture Technology SIT 225<span style="color: cadetblue;">(Year: 2025, 2024)</span></li>
-        <li>Secure Coding SIT 218<span style="color: cadetblue;">(Year: 2025, 2024)</span></li>
-        <li>Secure Coding SIT 738<span style="color: cadetblue;">(Year: 2025, 2024)</span></li>
-        <li>Database Fundamentals SIT 103<span style="color: cadetblue;">(Year: 2024)</span></li>        
+        <li>Cloud Computing <span style="color: brown;">SIT 233</span> <span style="color: cadetblue;">(Year: 2026, 2025)</span></li>
+        <li>Cloud Computing <span style="color: brown;">SIT 706</span> <span style="color: cadetblue;">(Year: 2026, 2025)</span></li>
+        <li>Data Capture Technology <span style="color: brown;">SIT 225</span><span style="color: cadetblue;">(Year: 2025, 2024)</span></li>
+        <li>Secure Coding <span style="color: brown;">SIT 218</span><span style="color: cadetblue;">(Year: 2026,2025, 2024)</span></li>
+        <li>Secure Coding <span style="color: brown;">SIT 738</span><span style="color: cadetblue;">(Year: 2025, 2024)</span></li>
+        <li>Database Fundamentals <span style="color: brown;">SIT 103</span><span style="color: cadetblue;">(Year: 2024)</span></li>        
       </ul>
   </div>
 </section>
 <section id="coursework-hstu" class="fade-in delay-2">
   <div class="card">
-    <h3 style="background-color: rgb(0, 143, 124);padding: 10px;color: #ffffff;border-radius: var(--radius-lg);">Hajee Mohammad Danesh Science & Technology University (HSTU), Dinajpur, Bangladesh</h3>    <br>
+    <h3 style="background-color: rgb(29 78 216);;padding: 10px;color: #ffffff;border-radius: var(--radius-lg);">Hajee Mohammad Danesh Science & Technology University (HSTU), Dinajpur, Bangladesh</h3>    <br>
     <h3 class="card-title">Masters Course</h3>
       <ul class="course-list">
         <li>Computer Arithmetic</li>

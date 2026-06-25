@@ -71,7 +71,7 @@
   bottom: 0;
   width: 100%;         /* underline length */
   height: 3px;          /* underline thickness */
-  background: #0055aa;  /* red */
+ 
   border-radius: 999px;
 }
 
@@ -83,7 +83,7 @@
   bottom: 0;
   width: 100%;
   height: 4px;
-  background: rgba(255, 128, 128,0.08);
+
   border-radius: 999px;
 }
 
@@ -218,7 +218,7 @@
     }
 
     .container {
-      max-width: 1120px;
+      max-width: 1220px;
       margin: 0 auto;
       padding: 0 1.5rem;
     }
@@ -304,7 +304,7 @@
     }
 
     .section-heading {
-      font-size: 1.25rem;
+      font-size: 1.65rem;
       font-weight: 600;
       margin-bottom: 0.9rem;
       display: flex;
@@ -322,18 +322,18 @@
       font-size: 0.9rem;
       color: rgb(79, 93, 114);
       margin-bottom: 1.4rem;
-      max-width: 880px;
+      
     }
 
     /* HERO LAYOUT (closer to screenshot) */
 
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 2.5fr);
       gap: 3rem;
       align-items: flex-start;
       padding-top: 1.6rem;
-      border-bottom: 1px solid #e5e7eb;
+      
       padding-bottom: 2.4rem;
     }
 
@@ -356,8 +356,8 @@
       background: #bfdbfe;
     }
 .rprofile-photo-large {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       border-radius: 999px;
       overflow: hidden;
       position: relative;
@@ -416,21 +416,21 @@
     }
 
     .hero-icons a {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
+      width: 48px;
+      height: 48px;
+    
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid #d1d5db;
-      background: #ffffff;
+     
+      
       color: var(--accent-strong);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      
       text-decoration: none;
     }
 
     .hero-icons a:hover {
-      background: #eff6ff;
+  
       transform: translateY(-1px);
     }
 
@@ -453,7 +453,7 @@
     }
 
     .hero-right h2 {
-      font-size: 1.4rem;
+      font-size: 1.7rem;
       font-weight: 600;
       margin-bottom: 0.7rem;
     }
@@ -461,11 +461,12 @@
     .hero-right p {
    
       margin-bottom: 0.65rem;
+      font-size: 1.10rem;
     }
 
     .hero-highlight {
       font-size: 0.86rem;
-      margin-top: 0.6rem;
+      margin-top: 0.2rem;
       padding: 0.45rem 0.7rem;
       background: var(--accent-soft);
       border-radius: 0.75rem;
@@ -518,21 +519,21 @@
 
     .grid-2 {
       display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
       gap: 1.8rem;
+     
     }
-.rgrid-2 {
+   .rgrid-2 {
       display: block;
       
       gap: 1.8rem;
     }
     .card {
       background: var(--bg-card);
-      border-radius: var(--radius-lg);
-      
+      border-radius: var(--radius-lg);      
       padding: 1.25rem 1.35rem;
       font-size: 0.94rem;
-      box-shadow: var(--shadow-soft);
+      margin-top: 0.4rem;    
       transition: transform 0.1s, box-shadow 0.1s;
     }
     .rcard {
@@ -540,8 +541,7 @@
       border-radius: var(--radius-lg);
       
       padding: 1.25rem 4.35rem;
-      font-size: 0.94rem;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.14);
+      font-size: 1.14rem;      
       transition: transform 0.1s, box-shadow 0.1s;
     }
 
@@ -636,7 +636,7 @@
     .pub-title { 
       color: rgb(1, 88, 122); 
       font-weight: 500; 
-      font-size: 18px;
+      font-size: 20px;
     }
     .pub-venue { 
       font-style: italic; 
@@ -857,6 +857,7 @@
   
   padding: 0.9rem 1.1rem;
   margin-bottom: 1.4rem;
+  margin-left: 40px;
  
 }
 
@@ -869,7 +870,7 @@
 }
 
 body {
-  line-height: 1.55;
+  line-height: 1.45;
 }
 
 /* Use accent for links, buttons, section titles */
@@ -1036,13 +1037,13 @@ html {
   padding: 0.5rem 0.45rem;
 }
 .stat-num{
-  font-size: 1.15rem;
+  font-size: 1.45rem;
   font-weight: 700;
 }
 .stat-label{
-  font-size: 0.75rem;
+  font-size: 0.65rem;
 
-  margin-top: 0.05rem;
+  margin-top: 0.04rem;
 }
 :root[data-theme="dark"] .stat{
   background: rgba(17,24,39,0.62);
@@ -1220,7 +1221,8 @@ html {
   font-size: 1.4rem;
 }
 .rhero-name {
-  font-size: 1.1rem;
+  font-size: 2.4rem;
+  font-weight: 650;
 }
 .hero-left.is-small .hero-position {
   font-size: 0.8rem;
@@ -1985,4 +1987,234 @@ details[open] .summary-caret{ transform: rotate(180deg); }
     justify-content: flex-start;
     margin-top: 0.4rem;
   }
+}
+/* =========================================================
+   RESPONSIVE & POLISH UPGRADE  (added)
+   Tablet / iPad / mobile layout + Font Awesome icon rendering
+   ========================================================= */
+
+/* --- Font Awesome icons inside circular social buttons --- */
+.hero-icons a i {
+  font-size: 1.9rem;
+  line-height: 1;
+}
+.nav-links a i { font-size: 0.85rem; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------
+   TABLET / iPad  (≤ 1024px and the iPad portrait ~820–1024)
+   The sticky profile column was hardcoded to 360px which broke
+   on tablets; below 1024px we collapse the hero to a single
+   column and disable the sticky/fixed profile behaviour.
+   --------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .container { max-width: 100%; padding: 0 1.25rem; }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  /* turn off the desktop sticky / fixed profile tricks on tablet */
+  .hero-left,
+  .hero-left.is-fixed,
+  .hero-left.is-fixed.is-small {
+    position: static !important;
+    width: auto !important;
+    transform: none !important;
+    top: auto !important;
+  }
+  .hero-left-placeholder,
+  .hero-left-placeholder.is-on { display: none !important; height: 0 !important; }
+
+  .hero-left.is-fixed.is-small .hero-buttons,
+  .hero-left.is-fixed.is-small .hero-stats { display: grid; }
+
+  .grid-2,
+  .rgrid-2 { grid-template-columns: minmax(0, 1fr); }
+
+  .rcard { padding: 1.25rem 1.5rem; }   /* was 4.35rem – too wide on tablet */
+}
+
+/* iPad portrait specific nicety: keep nav on one row but allow wrap */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .nav-links { gap: 0.35rem; font-size: 0.86rem; }
+  .hero-name { font-size: 2rem; }
+}
+
+/* ---------------------------------------------------------
+   MOBILE  (≤ 700px)
+   --------------------------------------------------------- */
+@media (max-width: 700px) {
+  main { padding: 1.4rem 0 2.2rem; }
+  section { padding: 1.6rem 0; }
+
+  .hero { padding-top: 1rem; gap: 1.4rem; }
+  .hero-name { font-size: 1.9rem; }
+
+  .profile-photo-large { width: 168px; height: 168px; }
+  .rprofile-photo-large { width: 140px; height: 140px; }
+
+  /* 2-up stat grid reads better than 4-up on phones */
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .section-heading { font-size: 1.42rem; }
+
+  /* larger tap targets for social + nav on touch screens */
+  .hero-icons { gap: 0.7rem; }
+  .hero-icons a { width: 40px; height: 40px; font-size: 1.05rem; }
+
+  .nav-links a { padding: 0.55rem 0.8rem; }   /* taller tap target */
+
+  .course-list { margin-left: 1.1rem; }       /* was 4.2rem – overflowed */
+
+  .featured-pub-item { grid-template-columns: 1fr; }
+}
+
+/* very small phones */
+@media (max-width: 400px) {
+  .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.45rem; }
+  .nav-title { font-size: 0.85rem; }
+}
+
+/* ---------------------------------------------------------
+   Make the mobile dropdown nav use the same breakpoint (1024)
+   so the hamburger appears on iPad portrait too.
+   --------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.4rem 0 0.6rem;
+  }
+  .nav-links.open { display: flex; gap: 0.25rem; }
+  .nav { flex-wrap: wrap; }
+  .nav-actions { margin-left: auto; }
+}
+
+/* Dark-mode fix for the quick-stats number colour (was hard red) */
+:root[data-theme="dark"] .hero-stats { color: var(--accent-strong); }
+:root[data-theme="dark"] .pub-title { color: var(--accent-strong); }
+:root[data-theme="dark"] .muted { color: var(--muted); }
+:root[data-theme="dark"] .section-subtitle { color: var(--muted); }
+:root[data-theme="dark"] .featured-pubs-title h2,
+:root[data-theme="dark"] .featured-pub-content h3,
+:root[data-theme="dark"] .featured-pub-desc { color: var(--primary); }
+
+/* Images shouldn't overflow their containers on any screen */
+img { max-width: 100%; height: auto; }
+
+/* =========================================================
+   EDUCATION (graduation-cap icon layout) + Research Interest icons
+   ========================================================= */
+
+/* --- Education list with cap icon, like reference site --- */
+.edu-list {
+  list-style: none;
+  margin: 0.4rem 0 0;
+  padding: 0;
+}
+
+.edu-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 0.55rem 0;
+}
+.edu-item + .edu-item {
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.edu-icon {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.15rem;
+  margin-top: 0.15rem;
+}
+
+.edu-body { min-width: 0; }
+
+.edu-degree {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.edu-org {
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+}
+
+.edu-note {
+  font-size: 0.8rem;
+  color: var(--accent-strong);
+  font-weight: 500;
+}
+
+:root[data-theme="dark"] .edu-icon { color: var(--accent-strong); }
+
+/* --- Research Interests with Font Awesome icon bullets --- */
+.interest-list-fa {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.interest-list-fa li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.25rem 0;
+  line-height: 1.45;
+  font-size: 0.8rem;
+}
+
+.interest-list-fa li i {
+  flex: 0 0 auto;
+  width: 22px;
+  text-align: center;
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+}
+
+.list-fa {
+  list-style: none;
+  margin: 0.2rem 0 0;
+  padding: 0;
+}
+
+.list-fa li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0.25rem 0;
+  line-height: 1.45;
+  font-size: 1.1rem;
+}
+
+.list-fa li i {
+  flex: 0 0 auto;
+  width: 22px;
+  text-align: center;
+  color: var(--accent-strong);
+  font-size: 1.1rem;
 }

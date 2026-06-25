@@ -124,10 +124,33 @@
   const nav = document.querySelector('.nav-links');
   const navToggle = document.getElementById('navToggle');
   if (nav && navToggle) {
-    navToggle.addEventListener('click', () => nav.classList.toggle('open'));
+    const setExpanded = (open) => {
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = nav.classList.toggle('open');
+      setExpanded(open);
+    });
     nav.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => nav.classList.remove('open'))
+      a.addEventListener('click', () => { nav.classList.remove('open'); setExpanded(false); })
     );
+    // close when clicking outside the menu
+    document.addEventListener('click', (e) => {
+      if (nav.classList.contains('open') &&
+          !nav.contains(e.target) && !navToggle.contains(e.target)) {
+        nav.classList.remove('open');
+        setExpanded(false);
+      }
+    });
+    // close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        setExpanded(false);
+        navToggle.focus();
+      }
+    });
   }
 
   // Back to top
